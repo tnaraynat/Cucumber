@@ -8,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import junit.framework.Assert;
 
 public class StepDefs_FreeCRMHomepageTitle {
 	
@@ -69,8 +70,16 @@ public class StepDefs_FreeCRMHomepageTitle {
    {
 	   driver.findElement(By.xpath("//div[@class='ui fluid large blue submit button']")).click();
    }
-   @Then("^this is foring test$")
+   @Then("^Click on Submit$")
    public void this_is_foring_test() {
+	   
+	   driver.findElement(By.xpath("//div[contains(text(),'Login') and @class='ui fluid large blue submit button']")).click();
       
+   }
+   @Then("^Verify Login Successfull$")
+   public void VerifyLogin()
+   {
+	   String usernametext=driver.findElement(By.xpath("//span[@contains(text(),'Narayana']")).getText();
+	   Assert.assertEquals("Narayana Rao", usernametext);
    }
 }
